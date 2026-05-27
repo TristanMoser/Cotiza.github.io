@@ -3,14 +3,18 @@ module.exports = {
   tagline: 'Native Salesforce CPQ for fast quoting workflows',
   favicon: 'img/logo.png',
 
-  url: 'https://YOUR_GITHUB_USERNAME.github.io',
-  baseUrl: '/cotiza-docs/',
+  url: 'https://tristanmoser.github.io/',
+  baseUrl: '/',
 
   organizationName: 'YOUR_GITHUB_USERNAME',
   projectName: 'cotiza-docs',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   presets: [
     [
