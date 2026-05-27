@@ -39,18 +39,13 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Documentation',
-        },
-        {
-          href: 'https://github.com/YOUR_GITHUB_USERNAME/cotiza-docs',
-          label: 'GitHub',
-          position: 'right',
-        },
+        { to: '/docs/intro', label: 'Docs', position: 'left' },
       ],
+    },
+
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
     },
   },
 };
