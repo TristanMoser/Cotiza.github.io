@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Cotiza CPQ',
   tagline: 'Native Salesforce CPQ for fast quoting workflows',
-  favicon: 'img/logo.png',
+  favicon: 'img/circlelogo.png',
 
   url: 'https://tristanmoser.github.io',
   baseUrl: '/Cotiza.github.io/',
@@ -36,7 +36,7 @@ module.exports = {
       title: 'Cotiza CPQ',
       logo: {
         alt: 'Cotiza Logo',
-        src: 'img/logo.png',
+        src: 'img/namelogo.png',
       },
       items: [
         { to: '/docs/intro', label: 'Docs', position: 'left' },
