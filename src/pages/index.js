@@ -1,7 +1,19 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './index.module.css';
+
+function Screenshot({ src, alt, className }) {
+  return (
+    <img
+      src={useBaseUrl(src)}
+      alt={alt}
+      className={className}
+      loading="lazy"
+    />
+  );
+}
 
 export default function Home() {
   return (
@@ -31,16 +43,11 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* HERO IMAGE (ADD SCREENSHOT HERE) */}
-          <div style={{ marginTop: '2rem' }}>
-            <img
-              src="/img/hero-cotiza-dashboard.png"
-              alt="Cotiza CPQ Salesforce interface"
-              style={{
-                width: '100%',
-                borderRadius: '12px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-              }}
+          <div className={styles.heroImage}>
+            <Screenshot
+              src="/img/screenshots/hero.png"
+              alt="Cotiza CPQ hub showing quotes for an Opportunity"
+              className={styles.screenshotHero}
             />
           </div>
         </div>
@@ -103,50 +110,62 @@ export default function Home() {
         </div>
       </main>
 
-      {/* VISUAL SECTION (LIKE GOOGLE SITES STYLE CALLOUTS) */}
-      <section style={{ padding: '4rem 0', background: '#f9fafb' }}>
+      {/* VISUAL SECTION */}
+      <section className={styles.visualSection}>
         <div className={styles.container}>
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 className={styles.visualHeading}>
             Built for Salesforce teams who move fast
           </h2>
 
-          <div className={styles.grid}>
-            <div className={styles.card}>
-              <img
-                src="/img/dynamic-quoting.png"
-                alt="Dynamic quoting example"
-                style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }}
-              />
-              <h3>Interactive Quoting</h3>
-              <p>Build quotes through guided inputs instead of static forms.</p>
+          <div className={`${styles.grid} ${styles.visualGrid}`}>
+            <div className={`${styles.card} ${styles.visualCard}`}>
+              <div className={styles.screenshotFrame}>
+                <Screenshot
+                  src="/img/screenshots/cpq-playbook-questions.png"
+                  alt="Playbook question groups in the quote configuration wizard"
+                  className={styles.screenshotCard}
+                />
+              </div>
+              <div className={styles.visualCardBody}>
+                <h3>Interactive Quoting</h3>
+                <p>Build quotes through guided inputs instead of static forms.</p>
+              </div>
             </div>
 
-            <div className={styles.card}>
-              <img
-                src="/img/approval-flow.png"
-                alt="Approval workflow"
-                style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }}
-              />
-              <h3>Smart Approvals</h3>
-              <p>Automatically route deals based on configurable business rules.</p>
+            <div className={`${styles.card} ${styles.visualCard}`}>
+              <div className={styles.screenshotFrame}>
+                <Screenshot
+                  src="/img/screenshots/cpq-approvals-hub.png"
+                  alt="Cotiza CPQ Approvals hub with pending approval levels"
+                  className={styles.screenshotCard}
+                />
+              </div>
+              <div className={styles.visualCardBody}>
+                <h3>Smart Approvals</h3>
+                <p>Automatically route deals based on configurable business rules.</p>
+              </div>
             </div>
 
-            <div className={styles.card}>
-              <img
-                src="/img/proposal-pdf.png"
-                alt="Proposal document preview"
-                style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }}
-              />
-              <h3>Proposal Output</h3>
-              <p>Generate clean, branded PDFs directly from Salesforce data.</p>
+            <div className={`${styles.card} ${styles.visualCard}`}>
+              <div className={styles.screenshotFrame}>
+                <Screenshot
+                  src="/img/screenshots/generate-proposal.png"
+                  alt="Proposals table listing generated quote documents"
+                  className={styles.screenshotCard}
+                />
+              </div>
+              <div className={styles.visualCardBody}>
+                <h3>Proposal Output</h3>
+                <p>Generate clean, branded PDFs directly from Salesforce data.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '4rem 0' }}>
-        <div className={styles.container} style={{ textAlign: 'center' }}>
+      <section className={styles.cta}>
+        <div className={`${styles.container} ${styles.ctaInner}`}>
           <h2>Start building better quoting workflows today</h2>
           <p>
             Install Cotiza CPQ from the Salesforce AppExchange and streamline your entire sales process.

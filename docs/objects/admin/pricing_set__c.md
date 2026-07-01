@@ -1,0 +1,16 @@
+# Pricing Set
+
+Container for Pricing Thresholds to use in product pricing.
+
+| API Name | Label | Description |
+| --- | --- | --- |
+| `Base_Price__c` | Base Price | Price to apply even before going through Threshold logic |
+| `Custom_Base_Price_Formula__c` | Custom Base Price Formula | Formula used for Base Price. If populated, the Base Price field is disregarded. Valid only for numbers, operators (+ - * /) and piped info: QuoteLineItem field: \{%Field_API_Name%\}. QuoteLineItem summaries: \{%Products.Field_API_Name:Add\|Subtract\|Multiply\|Divide\|Max\|Min\|Count:Filter_Field_API_Name:Equals\|Does not equal\|Greater than\|Greater than or equal\|Less than\|Less than or equal\|Contains\|Does not contain\|Is empty\|Is not empty:Filter_Value%\}. Question Answers: \{%Question.Variable_Name%\}. |
+| `Custom_Prior_Tiering_Field_Formula__c` | Custom Prior Tiering Field Formula | Formula used for Prior Tiering Field. If populated, the Prior Tiering Field is disregarded. Valid only for numbers, operators (+ - * /) and piped info: QuoteLineItem field: \{%Field_API_Name%\}. QuoteLineItem summaries: \{%Products.Field_API_Name:Add\|Subtract\|Multiply\|Divide\|Max\|Min\|Count:Filter_Field_API_Name:Equals\|Does not equal\|Greater than\|Greater than or equal\|Less than\|Less than or equal\|Contains\|Does not contain\|Is empty\|Is not empty:Filter_Value%\}. Question Answers: \{%Question.Variable_Name%\}. |
+| `Custom_Tiering_Field_Formula__c` | Custom Tiering Field Formula | Formula used for Tiering Field. If populated, the Tiering Field is disregarded. Valid only for numbers, operators (+ - * /) and piped info: QuoteLineItem field: \{%Field_API_Name%\}. QuoteLineItem summaries: \{%Products.Field_API_Name:Add\|Subtract\|Multiply\|Divide\|Max\|Min\|Count:Filter_Field_API_Name:Equals\|Does not equal\|Greater than\|Greater than or equal\|Less than\|Less than or equal\|Contains\|Does not contain\|Is empty\|Is not empty:Filter_Value%\}. Question Answers: \{%Question.Variable_Name%\}. |
+| `Identifier__c` | Identifier | Unique identifier to which Price Book Entries can map to utlize this Set |
+| `IsActive__c` | Is Active | Determines if set is active and should be utilized in CPQ |
+| `Pricebook__c` | Pricebook | Pricebook to which the Set belongs |
+| `Pricing_Type__c` | Pricing Type | Determines behavior of underlying Threshold records. "Single Tier - Per Unit": the first Threshold that is met will set the price for all units of the Tiering Field. "Single Tier - Flat": the first Threshold that is met will set the price for the whole product as if the quantity were 1. "Cumulative - Per Unit": each Pricing Threshold that is met will set the price for the units of Tiering Field that correspond to its threshold. |
+| `Prior_Tiering_Field__c` | Prior Tiering Field | QuoteLineItem Field API Name that is used to determine the prior comparing value for the underlying Threshold records. If populated, the price will be determined by subtracting the calculated prior price from the new price. When using, it is recommended to have a Pricing Threshold defined with an Upper Bound of 0 to allow proper refunding. |
+| `Tiering_Field__c` | Tiering Field | QuoteLineItem Field API Name that is used to determine the comparing value for the underlying Threshold records |

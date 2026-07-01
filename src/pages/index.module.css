@@ -66,6 +66,85 @@
   line-height: 1.4;
 }
 
+.heroImage {
+  margin-top: 2rem;
+}
+
+.screenshotHero {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.visualSection {
+  padding: 4rem 0;
+  background: #f9fafb;
+}
+
+.visualHeading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.visualGrid {
+  align-items: stretch;
+}
+
+.visualCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.screenshotFrame {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  background: linear-gradient(180deg, #f8f9fb 0%, #eef0f3 100%);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.screenshotCard {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 6px;
+  border: 1px solid #dfe3e8;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
+
+.visualCardBody {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 96px;
+}
+
+.visualCardBody h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.visualCardBody p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cta {
+  padding: 4rem 0;
+}
+
+.ctaInner {
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .grid {

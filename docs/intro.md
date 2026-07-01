@@ -6,6 +6,8 @@ Cotiza CPQ is a fully native Salesforce Sales Cloud application for end-to-end d
 
 Designed for flexibility, Cotiza adapts to your sales process instead of forcing you into a rigid quoting structure.
 
+![Cotiza CPQ hub showing quotes for an Opportunity](/img/screenshots/cpq-by-opportunity-quote-saved.png)
+
 ---
 
 ## What Cotiza CPQ does
@@ -27,12 +29,16 @@ Build quotes through an intelligent, guided experience.
 
 Fields, pricing logic, and product options adjust automatically based on user input—ensuring reps only see what’s relevant.
 
+![Playbook question groups in the quote configuration wizard](/img/screenshots/cpq-playbook-questions.png)
+
 ---
 
 ### Approval Automation
 Define approval rules based on real-time deal conditions such as discounts, products, or deal size.
 
 Cotiza automatically routes requests through the correct approval path with full auditability.
+
+![Cotiza CPQ Approvals hub with pending approval levels](/img/screenshots/cpq-approvals-hub.png)
 
 ---
 
@@ -45,12 +51,16 @@ Quotes can be converted into fully branded proposal PDFs that include:
 - Customer and opportunity data
 - Custom branding and layouts
 
+![Proposal preview generated from quote data](/img/screenshots/generate-proposal.png)
+
 ---
 
 ### Subscriptions & Renewals
 Extend beyond the initial deal.
 
 Cotiza supports recurring revenue workflows by bringing closed deals back into CPQ for upgrades, renewals, and expansions.
+
+![Account contracts table with Amend, Replace, and Renew actions](/img/screenshots/action-contracts.png)
 
 ---
 
@@ -61,6 +71,34 @@ Cotiza runs entirely inside Salesforce.
 - No data syncing layers
 - No separate user management
 - Fully aligned with Salesforce security and permissions
+
+Everything below lives in your Salesforce org—configuration, quoting UI, approvals, proposals, and the standard records they update.
+
+```mermaid
+flowchart TB
+    subgraph org ["Your Salesforce org"]
+        subgraph admin ["Configuration layer (admins)"]
+            SS[System Settings]
+            PB[Playbooks]
+            PB --> QG[Questions, rules, and pricing]
+            PB --> AP[Approval paths]
+            PB --> VS[View sections]
+        end
+        subgraph runtime ["Quote runtime (sales users)"]
+            UI[Cotiza CPQ Lightning UI]
+            UI --> Q[Quotes, line items, and answers]
+            UI --> PDF[Proposals]
+            UI --> APR[Approvals]
+        end
+        subgraph std ["Standard Salesforce records"]
+            OPP[Opportunity and products]
+            CTR[Contract and entitlements]
+        end
+        admin -.->|drives UI and logic| UI
+        Q -->|Sync Quote| OPP
+        Q -->|Create Contract| CTR
+    end
+```
 
 ---
 
@@ -84,14 +122,6 @@ Cotiza CPQ is supported on:
 
 ---
 
-## Architecture Overview
-
-Cotiza is built natively on Salesforce, ensuring all data, logic, and user interactions remain inside your CRM environment.
-
-![Architecture Diagram](/img/architecture-diagram.png)
-
----
-
 ## How Cotiza fits into your workflow
 
 1. A sales rep creates or opens an Opportunity
@@ -107,16 +137,29 @@ Cotiza is built natively on Salesforce, ensuring all data, logic, and user inter
 
 To get started:
 
-- Install Cotiza CPQ from the Salesforce AppExchange
-- Follow the Installation Guide
-- Configure permissions and user access
+- Install Cotiza CPQ from the [Salesforce AppExchange](https://appexchange.salesforce.com/)
+- Follow the [Installation Guide](./getting-started/installation.md)
+- [Assign permissions](./getting-started/permissions.md) and complete the [Quick Start](./getting-started/quick-start.md)
 - Set up your first quote workflow
 
 ---
 
 ## Learn more
 
-- Installation Guide
-- Permission Setup
-- Object Model Overview
-- UI Components Guide
+### For administrators
+
+- [Configuration Guide](./admin-guide/configuration.md)
+- [Playbook Design](./admin-guide/playbook-design.md)
+- [System Settings](./admin-guide/system-settings.md)
+- [Object Model Overview](./objects/overview.md)
+
+### For end users
+
+- [Workflow Overview](./user-guide/workflow-overview.md)
+- [Creating Quotes](./user-guide/creating-quotes.md)
+- [Contracts and Amendments](./user-guide/contracts-and-amendments.md)
+
+### Reference
+
+- [UI Components](./ui-components/overview.md)
+- [Glossary](./reference/glossary.md)

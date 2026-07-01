@@ -1,0 +1,105 @@
+{
+    "objects": [
+        {
+            "query": "SELECT Id, AccountRevenue, BillingCity, BillingCountry, BillingPostalCode, BillingState, BillingStreet, Industry, Name, NumberOfEmployees, Phone, ShippingCity, ShippingCountry, ShippingPostalCode, ShippingState, ShippingStreet, Type, Website FROM Account",
+            "operation": "Upsert",
+            "externalId": "Name"
+        },
+        {
+            "query": "SELECT Id, AccountId, Email, FirstName, LastName, MailingCity, MailingCountry, MailingPostalCode, MailingState, MailingStreet, Phone FROM Contact",
+            "operation": "Upsert",
+            "externalId": "Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Amendments_Maintain_Contract__c, Cotiza__Approval_Allowed_Override_Fields__c, Cotiza__Approval_Submitter__c, Cotiza__Contract_Table_Actions__c, Cotiza__Contract_Table_Display_Columns__c, Cotiza__Contract_Table_Page_Size_Default__c, Cotiza__Contract_Table_Sort_By_Default__c, Cotiza__Default_Playbook__c, Cotiza__Display_Playbook_as_Modal__c, Cotiza__Force_Quote_From_Contract__c, Cotiza__Line_Item_Pricing_Fields_Refresh__c, Cotiza__Proposal_Allowed_Override_Fields__c, Cotiza__Proposal_Quote_Piped_Fields__c, Cotiza__Proposal_Table_Actions__c, Cotiza__Proposal_Table_Page_Size_Default__c, Cotiza__Quote_Table_Actions__c, Cotiza__Quote_Table_Display_Columns__c, Cotiza__Quote_Table_Page_Size_Default__c, Cotiza__Quote_Table_Sort_By_Default__c, Cotiza__Show_Most_Active_Contract_Snapshot__c FROM Cotiza__System_Settings__c",
+            "operation": "Upsert",
+            "externalId": "Name"
+        },
+        {
+            "query": "SELECT Id, Description, Name, IsActive, IsStandard, Cotiza__Currency__c, Cotiza__Parent_Price_Book__c FROM Pricebook2 WHERE IsActive = TRUE",
+            "operation": "Upsert",
+            "externalId": "IsStandard;Name;Description"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Do_Not_Create_Entitlement__c, Cotiza__Do_Not_Upgrade_Entitlement__c, Description, Family, IsActive, Name, ProductCode FROM Product2 WHERE IsActive = TRUE",
+            "operation": "Upsert",
+            "externalId": "Name;Description"
+        },
+        {
+            "query": "SELECT Id, IsActive, UnitPrice, Pricebook2Id, Product2Id, Cotiza__Adjustable_Product_Columns__c, Cotiza__Currency__c, Cotiza__Date_Split_Types__c, Cotiza__Max_Manual_Additions__c, Cotiza__Pricing_Set_Identifier__c, Cotiza__Proration_Base__c, Cotiza__Quantity__c, Cotiza__Quantity_Increments__c, Cotiza__Removable__c FROM PricebookEntry WHERE IsActive = TRUE AND Product2.IsActive = TRUE",
+            "operation": "Upsert",
+            "externalId": "Product2.Name;UnitPrice;Pricebook2.Name",
+            "master": false
+        },
+        {
+            "query": "SELECT Id, Cotiza__Base_Price__c, Cotiza__Custom_Base_Price_Formula__c, Cotiza__Custom_Prior_Tiering_Field_Formula__c, Cotiza__Custom_Tiering_Field_Formula__c, Cotiza__Identifier__c, Cotiza__IsActive__c, Name, Cotiza__Pricebook__c, Cotiza__Pricing_Type__c, Cotiza__Prior_Tiering_Field__c, Cotiza__Tiering_Field__c FROM Cotiza__Pricing_Set__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Identifier__c"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Custom_Unit_Price_Formula__c, Cotiza__IsActive__c, Name, Cotiza__Lower_Bound__c, Cotiza__Pricing_Set__c, Cotiza__Unit_Price__c, Cotiza__Upper_Bound__c FROM Cotiza__Pricing_Threshold__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Pricing_Set__r.Cotiza__Identifier__c"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Add_Products_Column_Fields__c, Cotiza__Add_Products_Page_Size_Default__c, Cotiza__Add_Products_Sort_By_Default__c, Cotiza__Contract_View_Display_Fields__c, Cotiza__Default_Term_in_Months__c, Cotiza__End_Date_Editable__c, Cotiza__Entitlement_Summary_Column_Fields__c, Cotiza__Entitlement_Summary_Group_By_Default__c, Cotiza__Entitlement_Summary_Page_Size_Default__c, Cotiza__Entitlement_Summary_Sort_By_Default__c, Cotiza__IsActive__c, Cotiza__Label__c, Name, Cotiza__Pricebook__c, Cotiza__Product_Summary_Column_Fields__c, Cotiza__Product_Summary_Group_By_Default__c, Cotiza__Product_Summary_Page_Size_Default__c, Cotiza__Product_Summary_Sort_By_Default__c, Cotiza__Proposal_Header__c, Cotiza__Proposal_Header_Image_Link_Path__c, Cotiza__Proposal_Header_Type__c, Cotiza__Proposal_Footer__c, Cotiza__Quote_View_Display_Fields__c, Cotiza__Rules_Formula_Fields_Recalculation__c, Cotiza__Start_Date_Editable__c, Cotiza__Term_Editable__c FROM Cotiza__Playbook__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Label__c;Cotiza__Pricebook__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Criteria_Evaluation__c, Cotiza__Custom_Criteria_Evaluation_Logic__c, Cotiza__Description__c, Cotiza__IsActive__c, Cotiza__Lower_N__c, Name, Cotiza__Playbook__c, Cotiza__Upper_N__c FROM Cotiza__Playbook_Scenario__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__All_Products__c, Cotiza__Comparison_Operator__c, Cotiza__Comparison_Value_Boolean__c, Cotiza__Comparison_Value_Currency__c, Cotiza__Comparison_Value_Date__c, Cotiza__Comparison_Value_Decimal__c, Cotiza__Comparison_Value_Integer__c, Cotiza__Comparison_Value_Playbook_Question__c, Cotiza__Comparison_Value_Text__c, Cotiza__Criterion_Source__c, Cotiza__Entitlement_Additions_Behavior__c, Cotiza__Entitlement_Field__c, Cotiza__Identifier__c, Cotiza__IsActive__c, Cotiza__Manual_Additions_Behavior__c, Cotiza__Multiplicity_Behavior__c, Name, Cotiza__Playbook_Question__c, Cotiza__Playbook_Scenario__c, Cotiza__Price_Book_Entry_Field__c, Cotiza__Product__c, Cotiza__Product_Criterion_Target_Rule_Action__c, Cotiza__Product_Field__c, Cotiza__Product_Field_Type__c, Cotiza__Product_Is_Entitlement__c, Cotiza__Question_Is_Contract_Answer__c, Cotiza__Record_Lookup_Field__c, Cotiza__Record_Lookup_Field_Type__c, Cotiza__System_Value_Source__c FROM Cotiza__Playbook_Scenario_Criterion__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook_Scenario__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Default_Collapsed__c, Cotiza__Display_Order__c, Cotiza__IsActive__c, Cotiza__IsHidden__c, Cotiza__Label__c, Cotiza__Label_Icon__c, Cotiza__Max_Height__c, Name, Cotiza__Playbook__c FROM Cotiza__Playbook_Question_Group__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Label__c;Cotiza__Playbook__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Amendments_Take_Latest_Answer__c, Cotiza__Answer_Type__c, Cotiza__Default_Field_Value__c, Cotiza__Default_Value_Boolean__c, Cotiza__Default_Value_Currency__c, Cotiza__Default_Value_Date__c, Cotiza__Default_Value_Decimal__c, Cotiza__Default_Value_Integer__c, Cotiza__Default_Value_Text__c, Cotiza__Display_Label__c, Cotiza__Display_Order__c, Cotiza__Do_Not_Create_Answer__c, Cotiza__Do_Not_Upgrade_Answer__c, Cotiza__Help_Text__c, Cotiza__IsActive__c, Cotiza__IsHidden__c, Cotiza__IsReadOnly__c, Cotiza__IsRequired__c, Cotiza__IsRequiredWithTouch__c, Cotiza__Maximum_Record_Selections__c, Cotiza__Maximum_Value__c, Cotiza__Minimum_Value__c, Name, Cotiza__Picklist_Answers__c, Cotiza__Playbook_Question_Group__c, Cotiza__Proposal_Label__c, Cotiza__Query_String__c, Cotiza__Quote_Save_Field__c, Cotiza__Record_Display_Fields__c, Cotiza__Record_Page_Size_Default__c, Cotiza__Record_Selection_Behavior__c, Cotiza__Step_Value__c, Cotiza__Variable_Name__c FROM Cotiza__Playbook_Question__c",
+            "operation": "Upsert",
+            "externalId": "Cotiza__Variable_Name__c"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Description__c, Cotiza__Evaluate_When__c, Cotiza__Execution_Order__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Name, Cotiza__Playbook__c, Cotiza__Playbook_Scenario__c FROM Cotiza__Playbook_Rule__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Action_Type__c, Cotiza__All_Products__c, Cotiza__Calculation_Type__c, Cotiza__Entitlement_Additions_Behavior__c, Cotiza__Execution_Order__c, Cotiza__Field_Value_Boolean__c, Cotiza__Field_Value_Currency__c, Cotiza__Field_Value_Date__c, Cotiza__Field_Value_Decimal__c, Cotiza__Field_Value_Integer__c, Cotiza__Field_Value_Text__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Cotiza__Manual_Additions_Behavior__c, Cotiza__Multiplicity_Behavior__c, Name, Cotiza__Numeric_Math_Operator__c, Cotiza__Playbook_Question__c, Cotiza__Playbook_Question_Group__c, Cotiza__Playbook_Rule__c, Cotiza__Playbook_Scenario__c, Cotiza__Prevent_Post_Action_Recalculation__c, Cotiza__Product__c, Cotiza__Product_Adjustment_Field__c, Cotiza__Product_Adjustment_Field_Type__c, Cotiza__Product_Adjustment_Target_Rule_Action__c, Cotiza__Question_Adjustment_Field__c, Cotiza__Question_Group_Adjustment_Field__c, Cotiza__System_Value__c, Cotiza__Value_Source_Type__c FROM Cotiza__Playbook_Rule_Action__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook_Rule__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__All_Products__c, Cotiza__Calculation_Source__c, Cotiza__Entitlement_Additions_Behavior__c, Cotiza__Entitlement_Calculation_Field__c, Cotiza__Entitlement_Calculation_Field_Type__c, Cotiza__Execution_Order__c, Cotiza__Formula__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Cotiza__Manual_Additions_Behavior__c, Cotiza__Multiplicity_Behavior__c, Name, Cotiza__Playbook_Question__c, Cotiza__Playbook_Rule_Action__c, Cotiza__Product__c, Cotiza__Product_Action_Match_Behavior__c, Cotiza__Product_Calculation_Field__c, Cotiza__Product_Calculation_Field_Type__c, Cotiza__Product_Calculation_Target_Rule_Action__c, Cotiza__Product_Is_Entitlement__c, Cotiza__Question_Is_Contract_Answer__c, Cotiza__Record_Lookup_Field__c, Cotiza__Record_Lookup_Field_Type__c, Cotiza__Playbook_Scenario__c, Cotiza__Static_Value_Boolean__c, Cotiza__Static_Value_Currency__c, Cotiza__Static_Value_Date__c, Cotiza__Static_Value_Decimal__c, Cotiza__Static_Value_Integer__c, Cotiza__Static_Value_Text__c, Cotiza__Static_Value_Type__c FROM Cotiza__Playbook_Rule_Calculation_Item__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook_Rule_Action__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Approval_Emails_To_Send__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Cotiza__Label__c, Name, Cotiza__Persistent_Approval__c, Cotiza__Playbook__c, Cotiza__Playbook_Scenario__c, Cotiza__Reason__c, Cotiza__Require_Individual_Approval__c, Cotiza__Require_Notes__c FROM Cotiza__Playbook_Approval__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Approval_Order__c, Cotiza__Approvers_Required__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Name, Cotiza__Playbook_Approval__c, Cotiza__Playbook_Scenario__c FROM Cotiza__Playbook_Approver_Group__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook_Approval__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Approver__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Cotiza__Manager_Approver_Level__c, Name, Cotiza__Playbook_Approver_Group__c, Cotiza__Playbook_Scenario__c FROM Cotiza__Playbook_Approver__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook_Approver_Group__r.Name"
+        },
+        {
+            "query": "SELECT Id, Cotiza__Allow_Mid_Section_Page_Break__c, Cotiza__Answer_Table_Questions__c, Cotiza__Approval_Base_Email_Section__c, Cotiza__Approval_Emails_Where_Included__c, Cotiza__Body_Text_Block_1__c, Cotiza__Body_Text_Block_2__c, Cotiza__Body_Text_Block_3__c, Cotiza__Display_Order__c, Cotiza__Force_Page_Break_After__c, Cotiza__Force_Page_Break_Before__c, Cotiza__Image_Link_Path__c, Cotiza__Image_Width__c, Cotiza__Inputs_Column_1__c, Cotiza__Inputs_Column_2__c, Cotiza__Inputs_Column_3__c, Cotiza__Inputs_Font_Color__c, Cotiza__Inputs_Font_Size__c, Cotiza__Inverse_Scenario__c, Cotiza__IsActive__c, Cotiza__Margin_Bottom__c, Cotiza__Margin_Left__c, Cotiza__Margin_Right__c, Cotiza__Margin_Top__c, Name, Cotiza__Playbook__c, Cotiza__Playbook_Approval__c, Cotiza__Playbook_Scenario__c, Cotiza__Quote_Redline__c, Cotiza__Record_Table_Column_Widths__c, Cotiza__Record_Table_Group_Field__c, Cotiza__Record_Table_Group_Font_Color__c, Cotiza__Record_Table_Group_Font_Size__c, Cotiza__Record_Table_Summary_Fields__c, Cotiza__Record_Table_Summary_Label__c, Cotiza__Record_Table_Summary_Types__c, Cotiza__Record_Table_Query__c, Cotiza__Section_Type__c, Cotiza__Table_Entries_Background_Color__c, Cotiza__Table_Entries_Font_Color__c, Cotiza__Table_Entries_Font_Size__c, Cotiza__Table_Headers_Background_Color__c, Cotiza__Table_Headers_Font_Color__c, Cotiza__Table_Headers_Font_Size__c, Cotiza__View_Section_Override__c, Cotiza__View_Source__c, Cotiza__Visualforce_Source__c FROM Cotiza__Playbook_View_Section__c",
+            "operation": "Upsert",
+            "externalId": "Name;Cotiza__Playbook__r.Name"
+        }
+    ]
+}
