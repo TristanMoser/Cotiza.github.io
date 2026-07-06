@@ -34,6 +34,7 @@ See [Rule Evaluation](./rule-evaluation.md) for **Execute When** options and ord
 - Product line item fields (specific product or all products)
 - Static values (text, decimal, currency, etc.)
 - Quote term and system values
+- Formula expressions with comparison operators and ternary logic (when **Calculation Source** is **Formula**)
 
 **Calculation Type** on the Rule Action defines the math operation (Add, Subtract, Multiply, Divide, etc.) with optional **Numeric Math Operator** (Round, Floor, Ceiling).
 

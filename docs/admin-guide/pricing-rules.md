@@ -16,6 +16,8 @@ When pricing is more complex than price × quantity, use **Pricing Set** and **P
 2. Add [Pricing Threshold](../objects/admin/pricing_threshold__c.md) records for each tier range.
 3. Reference the Pricing Set from your Playbook or product configuration as needed.
 
+Custom formulas on Pricing Sets and Pricing Thresholds support comparison operators (`===`, `!==`, `==`, `!=`, `<`, `>`, `<=`, `>=`) and ternary expressions (`? :`) in addition to standard arithmetic and piped CPQ tokens.
+
 ## Dynamic pricing with Playbook Rules
 
 Playbook Rules can calculate and stamp pricing values dynamically using Rule Actions and Calculation Items. Common patterns include:

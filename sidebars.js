@@ -127,6 +127,7 @@ module.exports = {
       type: 'category',
       label: 'Security',
       items: [
+        'security/solution-architecture-and-usage',
         'security/data-handling',
         'security/compliance',
       ],
@@ -142,6 +143,7 @@ module.exports = {
       type: 'category',
       label: 'Release Notes',
       items: [
+        'release-notes/v0-2-0',
         'release-notes/v1-0-0',
       ],
     },

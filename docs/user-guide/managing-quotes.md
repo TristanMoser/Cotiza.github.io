@@ -51,6 +51,7 @@ When previewing a proposal while editing a Quote, Cotiza may create a temporary 
 - Are flagged with **Shell Quote** on the Quote record
 - Receive draft watermarks on generated proposals
 - Are not intended for customer delivery
+- Do not reuse existing Playbook Answer record IDs; answers are treated as new records when the shell quote is saved
 
 ## Quote approval status
 

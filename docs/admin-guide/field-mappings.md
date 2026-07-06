@@ -37,11 +37,17 @@ During contract amendments, multiple entitlement records may merge. Combination 
 | Operation | Use when |
 | --- | --- |
 | **Sum** | Quantities or totals should aggregate |
+| **Sum Product** | A per-entitlement formula should be evaluated and summed (e.g., weighted totals) |
 | **Max / Min** | Take boundary values (e.g., latest end date = Max) |
 | **Newest / Oldest** | Take value from most recent or earliest record |
+| **Average** | Numeric values should be averaged |
 | **Custom** | Formula with piped field tokens |
 
-Example: discount percentage calculated as `{%Cotiza__Base_List_Price__c%} !== 0 ? 1 - ({%Cotiza__Base_Unit_Price__c%} / {%Cotiza__Base_List_Price__c%}) : 0`
+Both **Field Type** and **Operation** are required on each mapping record.
+
+Custom formulas support standard arithmetic operators, comparison operators (`===`, `!==`, `==`, `!=`, `<`, `>`, `<=`, `>=`), and ternary expressions (`? :`).
+
+Example: discount percentage calculated as `{%Cotiza__SubTotal_Price__c%} !== 0 ? 1 - ({%Cotiza__Total_Price__c%} / {%Cotiza__SubTotal_Price__c%}) : 0`
 
 ## Deployment
 

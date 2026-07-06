@@ -43,6 +43,8 @@ See [System Settings](./system-settings.md).
 | **Replacement** | New deal structure; may switch playbook with Contract Playbook Answer support |
 | **Renewal** | Extend term; contract status reflects renewal chain |
 
+Renewal Quotes derive full-term pricing defaults from underlying contract entitlements rather than prorated list/unit values. See [Contracts and Amendments (User)](../user-guide/contracts-and-amendments.md#renewal-pricing-defaults).
+
 Quote and Contract records store **Adjustment Type** and **Adjustment of Contract** (lookup to source Contract).
 
 ## Entitlement creation
@@ -59,12 +61,17 @@ During amendments, multiple entitlements may merge into one. [Entitlement Combin
 | Operation | Behavior |
 | --- | --- |
 | Sum | Add numeric values |
+| Sum Product | Evaluate the Custom Operation Formula for each adjustment entitlement and sum the results |
 | Min / Max | Take minimum or maximum |
 | Newest / Oldest | Take value from newest or oldest entitlement |
 | Average | Average numeric values |
 | Custom | Formula using piped entitlement field tokens |
 
+Custom formulas support comparison operators and ternary expressions in addition to standard arithmetic.
+
 Example custom formula: `{%Cotiza__Base_Unit_Price__c%} * {%Cotiza__Proration__c%}`
+
+Example discount formula (package default): `{%Cotiza__SubTotal_Price__c%} !== 0 ? 1 - ({%Cotiza__Total_Price__c%} / {%Cotiza__SubTotal_Price__c%}) : 0`
 
 ## Contract void
 

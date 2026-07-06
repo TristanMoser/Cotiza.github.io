@@ -33,5 +33,6 @@ Approval decisions, Quote changes, and Contract events are stored on Salesforce 
 
 ## Related documentation
 
+- [Solution Architecture and Usage](./solution-architecture-and-usage.md)
 - [Data Handling](./data-handling.md)
 - [Permissions](../getting-started/permissions.md)

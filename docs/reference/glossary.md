@@ -12,7 +12,8 @@
 | **View Section** | Blueprint for a section in a proposal PDF or approval email |
 | **Pricing Set** | Tiered pricing configuration linked to products via identifier |
 | **Pricing Threshold** | Numeric tier range within a pricing set |
-| **Shell Quote** | Temporary quote created for proposal preview during edit; receives draft watermark |
+| **Shell Quote** | Temporary quote created for proposal preview during edit; receives draft watermark and does not reuse existing Playbook Answer record IDs |
+| **Sum Product** | Entitlement combination operation that evaluates a custom formula per adjustment entitlement and sums the results |
 | **Sync** | Push Quote and line item field values to Opportunity and Opportunity Products |
 | **Contract Entitlement** | Product entitlement record on a Contract |
 | **Adjustment Type** | Amendment, Replacement, or Renewal—defines how a contract-sourced Quote modifies the deal |

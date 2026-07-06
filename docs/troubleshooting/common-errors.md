@@ -131,7 +131,8 @@ See [Contracts Lifecycle](../admin-guide/contracts-lifecycle.md).
 ### Resolution
 
 1. Review inline help on the failing field for formula or SOQL syntax requirements.
-2. For Record Table queries, avoid parent relationships and subqueries.
-3. For piped text, use exact Variable Name tokens from Playbook Questions.
+2. For custom formulas on Pricing Sets, Pricing Thresholds, Rule Calculation Items, or Entitlement Combination Mappings, supported syntax includes standard operators (+ - * /), comparison operators (`===`, `!==`, `==`, `!=`, `<`, `>`, `<=`, `>=`), ternary expressions (`? :`), and valid piped CPQ tokens.
+3. For Record Table queries, avoid parent relationships and subqueries.
+4. For piped text, use exact Variable Name tokens from Playbook Questions.
 
 See [View Sections and Proposals](../admin-guide/view-sections-proposals.md).

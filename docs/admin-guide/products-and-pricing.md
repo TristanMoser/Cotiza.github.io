@@ -58,6 +58,8 @@ For straightforward price × quantity models, populate **UnitPrice** on Priceboo
 
 [Pricing Threshold](../objects/admin/pricing_threshold__c.md) records define numeric ranges and resulting prices within a Pricing Set.
 
+Custom formulas on Pricing Sets and Pricing Thresholds support comparison operators and ternary expressions in addition to standard arithmetic and piped CPQ tokens.
+
 ### 3. Link to products
 
 Set **Pricing Set Identifier** on each PricebookEntry to connect products to their pricing set.
@@ -66,7 +68,7 @@ Set **Pricing Set Identifier** on each PricebookEntry to connect products to the
 
 ## Dynamic pricing with rules
 
-Playbook Rules can override or supplement pricing set calculations by stamping line item fields or question answers. See [Pricing Rules](./pricing-rules.md) and [Rules Cookbook](./rules-cookbook.md).
+Playbook Rules can override or supplement pricing set calculations by stamping line item fields or question answers. Calculation Item formulas support comparison operators and ternary expressions in addition to standard arithmetic. See [Pricing Rules](./pricing-rules.md) and [Rules Cookbook](./rules-cookbook.md).
 
 ## Date splits
 

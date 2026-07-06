@@ -50,6 +50,10 @@ When creating a Quote from a Contract, the Quote receives an **Adjustment Type**
 | **Replacement** | Replace the contract with a new configuration |
 | **Renewal** | Renew at end of term |
 
+### Renewal pricing defaults
+
+When a Quote is created from a Contract with **Renewal** adjustment type, entitlement-sourced line items derive full-term pricing from the underlying contract entitlements rather than prorated list/unit values. CPQ calculates quantity-weighted base list price, base unit price, and discount from the entitlement records (including any adjustment entitlements) and uses those values as the starting point for renewal configuration.
+
 :::warning Playbook changes
 Playbook changes are **not allowed** during Amendment scenarios. Plan playbooks to support amendment, replacement, and renewal flows within a single Playbook where possible.
 :::
@@ -58,7 +62,7 @@ See [How Many Playbooks?](../admin-guide/how-many-playbooks.md).
 
 ## Entitlements
 
-Contract Entitlements represent entitled products on a Contract. During amendments, entitlements may be combined according to [Entitlement Combination Mapping](../admin-guide/field-mappings.md) rules (Sum, Max, Min, Newest, Oldest, Custom formulas).
+Contract Entitlements represent entitled products on a Contract. During amendments, entitlements may be combined according to [Entitlement Combination Mapping](../admin-guide/field-mappings.md) rules (Sum, Sum Product, Max, Min, Newest, Oldest, Average, Custom formulas).
 
 The **Entitlement Summary** view in Quote configuration compares contract entitlements to proposed changes.
 
